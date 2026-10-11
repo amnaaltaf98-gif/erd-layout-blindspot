@@ -1,0 +1,7478 @@
+[
+  {
+    "id": "s5_0",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "description",
+          "status"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "amount",
+          "price",
+          "name",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "notes",
+          "description",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "price",
+          "created_at",
+          "status",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "description",
+          "branches_id",
+          "appointments_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 170
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "appointments"
+      },
+      {
+        "from": "customers",
+        "to": "appointments"
+      },
+      {
+        "from": "shipments",
+        "to": "appointments"
+      },
+      {
+        "from": "shipments",
+        "to": "branches"
+      },
+      {
+        "from": "shipments",
+        "to": "customers"
+      },
+      {
+        "from": "users",
+        "to": "appointments"
+      }
+    ]
+  },
+  {
+    "id": "s5_1",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "amount",
+          "quantity",
+          "notes",
+          "status"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "status",
+          "price",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "status",
+          "email",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "price",
+          "phone",
+          "quantity",
+          "events_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "quantity",
+          "notes",
+          "events_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "enrollments",
+        "to": "customers"
+      },
+      {
+        "from": "enrollments",
+        "to": "events"
+      },
+      {
+        "from": "events",
+        "to": "reviews"
+      },
+      {
+        "from": "reviews",
+        "to": "customers"
+      },
+      {
+        "from": "shipments",
+        "to": "customers"
+      },
+      {
+        "from": "shipments",
+        "to": "events"
+      }
+    ]
+  },
+  {
+    "id": "s5_2",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "title",
+          "phone"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "title",
+          "phone",
+          "created_at",
+          "payments_id",
+          "patients_id",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "created_at",
+          "status",
+          "date",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "price",
+          "amount",
+          "description",
+          "title",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "status",
+          "created_at",
+          "date",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "doctors",
+        "to": "patients"
+      },
+      {
+        "from": "doctors",
+        "to": "payments"
+      },
+      {
+        "from": "doctors",
+        "to": "shipments"
+      },
+      {
+        "from": "patients",
+        "to": "shipments"
+      },
+      {
+        "from": "projects",
+        "to": "doctors"
+      },
+      {
+        "from": "shipments",
+        "to": "payments"
+      }
+    ]
+  },
+  {
+    "id": "s5_3",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "phone",
+          "date",
+          "price",
+          "title"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "title",
+          "email",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "date",
+          "price",
+          "quantity",
+          "email",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "phone",
+          "accounts_id",
+          "events_id",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "notes",
+          "price",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "warehouses"
+      },
+      {
+        "from": "events",
+        "to": "products"
+      },
+      {
+        "from": "orders",
+        "to": "accounts"
+      },
+      {
+        "from": "orders",
+        "to": "events"
+      },
+      {
+        "from": "orders",
+        "to": "warehouses"
+      },
+      {
+        "from": "products",
+        "to": "warehouses"
+      }
+    ]
+  },
+  {
+    "id": "s5_4",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "notes",
+          "phone"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "date",
+          "created_at",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "title",
+          "phone",
+          "courses_id",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "date",
+          "description",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "date",
+          "status",
+          "categories_id",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "courses"
+      },
+      {
+        "from": "categories",
+        "to": "accounts"
+      },
+      {
+        "from": "categories",
+        "to": "courses"
+      },
+      {
+        "from": "customers",
+        "to": "categories"
+      },
+      {
+        "from": "customers",
+        "to": "courses"
+      },
+      {
+        "from": "projects",
+        "to": "courses"
+      }
+    ]
+  },
+  {
+    "id": "s5_5",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "status",
+          "name",
+          "email",
+          "title"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "status",
+          "patients_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "title",
+          "phone",
+          "status",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "title",
+          "phone",
+          "employees_id",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 170
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "addresses",
+        "to": "employees"
+      },
+      {
+        "from": "addresses",
+        "to": "patients"
+      },
+      {
+        "from": "appointments",
+        "to": "doctors"
+      },
+      {
+        "from": "appointments",
+        "to": "employees"
+      },
+      {
+        "from": "doctors",
+        "to": "addresses"
+      },
+      {
+        "from": "employees",
+        "to": "patients"
+      }
+    ]
+  },
+  {
+    "id": "s5_6",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "quantity",
+          "email",
+          "status",
+          "amount",
+          "payments_id",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "date",
+          "phone",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "phone",
+          "status",
+          "email",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "date",
+          "email",
+          "name",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "carts",
+        "to": "warehouses"
+      },
+      {
+        "from": "invoices",
+        "to": "carts"
+      },
+      {
+        "from": "invoices",
+        "to": "payments"
+      },
+      {
+        "from": "payments",
+        "to": "carts"
+      },
+      {
+        "from": "transactions",
+        "to": "invoices"
+      },
+      {
+        "from": "warehouses",
+        "to": "invoices"
+      }
+    ]
+  },
+  {
+    "id": "s5_7",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "description",
+          "date",
+          "phone"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "name",
+          "amount",
+          "appointments_id",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "date",
+          "name",
+          "quantity",
+          "title",
+          "students_id",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "amount",
+          "phone",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "products",
+        "to": "users"
+      },
+      {
+        "from": "students",
+        "to": "appointments"
+      },
+      {
+        "from": "tickets",
+        "to": "appointments"
+      },
+      {
+        "from": "tickets",
+        "to": "users"
+      },
+      {
+        "from": "users",
+        "to": "appointments"
+      },
+      {
+        "from": "users",
+        "to": "students"
+      }
+    ]
+  },
+  {
+    "id": "s5_8",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "status",
+          "title",
+          "quantity"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "price",
+          "description",
+          "courses_id",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "title",
+          "notes",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "email",
+          "events_id",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "phone",
+          "amount",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "categories",
+        "to": "courses"
+      },
+      {
+        "from": "categories",
+        "to": "events"
+      },
+      {
+        "from": "events",
+        "to": "courses"
+      },
+      {
+        "from": "orders",
+        "to": "courses"
+      },
+      {
+        "from": "projects",
+        "to": "categories"
+      },
+      {
+        "from": "projects",
+        "to": "courses"
+      }
+    ]
+  },
+  {
+    "id": "s5_9",
+    "n_tables": 5,
+    "tables": [
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "name",
+          "notes"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "title",
+          "email",
+          "created_at",
+          "teachers_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "date",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "price",
+          "notes",
+          "customers_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "status",
+          "quantity",
+          "notes",
+          "price",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "customers",
+        "to": "products"
+      },
+      {
+        "from": "customers",
+        "to": "teachers"
+      },
+      {
+        "from": "payments",
+        "to": "teachers"
+      },
+      {
+        "from": "products",
+        "to": "teachers"
+      },
+      {
+        "from": "students",
+        "to": "customers"
+      },
+      {
+        "from": "students",
+        "to": "products"
+      }
+    ]
+  },
+  {
+    "id": "s8_0",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "notes",
+          "created_at",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "amount",
+          "date",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "quantity",
+          "status",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "status",
+          "title",
+          "email",
+          "quantity",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "description",
+          "amount",
+          "created_at",
+          "status",
+          "warehouses_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "created_at",
+          "description",
+          "products_id",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "appointments",
+        "to": "shipments"
+      },
+      {
+        "from": "carts",
+        "to": "products"
+      },
+      {
+        "from": "carts",
+        "to": "warehouses"
+      },
+      {
+        "from": "courses",
+        "to": "events"
+      },
+      {
+        "from": "events",
+        "to": "appointments"
+      },
+      {
+        "from": "events",
+        "to": "products"
+      },
+      {
+        "from": "orders",
+        "to": "warehouses"
+      },
+      {
+        "from": "products",
+        "to": "warehouses"
+      },
+      {
+        "from": "shipments",
+        "to": "courses"
+      },
+      {
+        "from": "warehouses",
+        "to": "courses"
+      }
+    ]
+  },
+  {
+    "id": "s8_1",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "status",
+          "notes",
+          "name"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "quantity",
+          "price",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "date",
+          "description",
+          "notes",
+          "quantity",
+          "doctors_id",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "email",
+          "price",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "amount",
+          "price",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "email",
+          "amount",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "quantity",
+          "notes",
+          "description",
+          "doctors_id",
+          "branches_id",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 170
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "users"
+      },
+      {
+        "from": "carts",
+        "to": "departments"
+      },
+      {
+        "from": "categories",
+        "to": "users"
+      },
+      {
+        "from": "departments",
+        "to": "branches"
+      },
+      {
+        "from": "departments",
+        "to": "doctors"
+      },
+      {
+        "from": "doctors",
+        "to": "users"
+      },
+      {
+        "from": "invoices",
+        "to": "branches"
+      },
+      {
+        "from": "invoices",
+        "to": "categories"
+      },
+      {
+        "from": "invoices",
+        "to": "doctors"
+      },
+      {
+        "from": "transactions",
+        "to": "users"
+      }
+    ]
+  },
+  {
+    "id": "s8_2",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "date",
+          "price",
+          "description"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "description",
+          "price",
+          "date",
+          "enrollments_id",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "description",
+          "title",
+          "created_at",
+          "price",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "date",
+          "name",
+          "price",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "amount",
+          "teachers_id",
+          "customers_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "title",
+          "quantity",
+          "phone",
+          "amount",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "title",
+          "status",
+          "date",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "addresses",
+        "to": "customers"
+      },
+      {
+        "from": "courses",
+        "to": "enrollments"
+      },
+      {
+        "from": "courses",
+        "to": "payments"
+      },
+      {
+        "from": "customers",
+        "to": "enrollments"
+      },
+      {
+        "from": "orders",
+        "to": "enrollments"
+      },
+      {
+        "from": "payments",
+        "to": "customers"
+      },
+      {
+        "from": "payments",
+        "to": "orders"
+      },
+      {
+        "from": "payments",
+        "to": "teachers"
+      },
+      {
+        "from": "shipments",
+        "to": "addresses"
+      },
+      {
+        "from": "teachers",
+        "to": "courses"
+      }
+    ]
+  },
+  {
+    "id": "s8_3",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "title",
+          "amount",
+          "status",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "notes",
+          "description",
+          "phone",
+          "title",
+          "branches_id",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "created_at",
+          "title",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "description",
+          "status",
+          "warehouses_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "notes",
+          "date",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "name",
+          "date",
+          "status",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "phone",
+          "created_at",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "notes",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "employees"
+      },
+      {
+        "from": "branches",
+        "to": "warehouses"
+      },
+      {
+        "from": "categories",
+        "to": "venues"
+      },
+      {
+        "from": "doctors",
+        "to": "transactions"
+      },
+      {
+        "from": "employees",
+        "to": "transactions"
+      },
+      {
+        "from": "products",
+        "to": "transactions"
+      },
+      {
+        "from": "transactions",
+        "to": "branches"
+      },
+      {
+        "from": "transactions",
+        "to": "warehouses"
+      },
+      {
+        "from": "venues",
+        "to": "warehouses"
+      },
+      {
+        "from": "warehouses",
+        "to": "employees"
+      }
+    ]
+  },
+  {
+    "id": "s8_4",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "price",
+          "phone"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "notes",
+          "price",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "date",
+          "email",
+          "created_at",
+          "courses_id",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "courses_id",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "created_at",
+          "status",
+          "email",
+          "description",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "quantity",
+          "date",
+          "phone",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "name",
+          "status",
+          "description",
+          "courses_id",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "enrollments"
+      },
+      {
+        "from": "branches",
+        "to": "inventory"
+      },
+      {
+        "from": "carts",
+        "to": "branches"
+      },
+      {
+        "from": "carts",
+        "to": "courses"
+      },
+      {
+        "from": "courses",
+        "to": "accounts"
+      },
+      {
+        "from": "departments",
+        "to": "enrollments"
+      },
+      {
+        "from": "inventory",
+        "to": "accounts"
+      },
+      {
+        "from": "inventory",
+        "to": "courses"
+      },
+      {
+        "from": "projects",
+        "to": "courses"
+      },
+      {
+        "from": "projects",
+        "to": "inventory"
+      }
+    ]
+  },
+  {
+    "id": "s8_5",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "title",
+          "notes",
+          "description",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "created_at",
+          "phone",
+          "notes",
+          "date",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "description",
+          "amount",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "title",
+          "name",
+          "email",
+          "description",
+          "accounts_id",
+          "venues_id",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "phone",
+          "created_at",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "price",
+          "description",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "status",
+          "phone",
+          "quantity",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "description",
+          "price",
+          "notes",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "addresses"
+      },
+      {
+        "from": "addresses",
+        "to": "teachers"
+      },
+      {
+        "from": "patients",
+        "to": "accounts"
+      },
+      {
+        "from": "projects",
+        "to": "patients"
+      },
+      {
+        "from": "teachers",
+        "to": "accounts"
+      },
+      {
+        "from": "teachers",
+        "to": "projects"
+      },
+      {
+        "from": "teachers",
+        "to": "venues"
+      },
+      {
+        "from": "tickets",
+        "to": "teachers"
+      },
+      {
+        "from": "users",
+        "to": "teachers"
+      },
+      {
+        "from": "venues",
+        "to": "addresses"
+      }
+    ]
+  },
+  {
+    "id": "s8_6",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "phone",
+          "price"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "title",
+          "shipments_id",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "notes",
+          "email",
+          "created_at",
+          "price",
+          "tickets_id",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "amount",
+          "name",
+          "students_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "amount",
+          "title",
+          "description",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "notes",
+          "status",
+          "email",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "notes",
+          "title",
+          "status",
+          "email",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "price",
+          "title",
+          "amount",
+          "email",
+          "tickets_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "shipments"
+      },
+      {
+        "from": "orders",
+        "to": "tickets"
+      },
+      {
+        "from": "products",
+        "to": "shipments"
+      },
+      {
+        "from": "products",
+        "to": "tickets"
+      },
+      {
+        "from": "students",
+        "to": "shipments"
+      },
+      {
+        "from": "tickets",
+        "to": "shipments"
+      },
+      {
+        "from": "tickets",
+        "to": "users"
+      },
+      {
+        "from": "users",
+        "to": "shipments"
+      },
+      {
+        "from": "warehouses",
+        "to": "products"
+      },
+      {
+        "from": "warehouses",
+        "to": "students"
+      }
+    ]
+  },
+  {
+    "id": "s8_7",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "description",
+          "created_at"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "date",
+          "title",
+          "price",
+          "notes",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "phone",
+          "description",
+          "amount",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "quantity",
+          "status",
+          "email",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "phone",
+          "status",
+          "notes",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "amount",
+          "title",
+          "description",
+          "quantity",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "projects_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "phone",
+          "status",
+          "carts_id",
+          "students_id",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "carts",
+        "to": "orders"
+      },
+      {
+        "from": "carts",
+        "to": "projects"
+      },
+      {
+        "from": "doctors",
+        "to": "carts"
+      },
+      {
+        "from": "doctors",
+        "to": "students"
+      },
+      {
+        "from": "doctors",
+        "to": "transactions"
+      },
+      {
+        "from": "orders",
+        "to": "projects"
+      },
+      {
+        "from": "projects",
+        "to": "transactions"
+      },
+      {
+        "from": "reviews",
+        "to": "projects"
+      },
+      {
+        "from": "students",
+        "to": "transactions"
+      },
+      {
+        "from": "teachers",
+        "to": "transactions"
+      }
+    ]
+  },
+  {
+    "id": "s8_8",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "notes",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "title",
+          "amount",
+          "quantity",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "quantity",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "notes",
+          "date",
+          "quantity",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "notes",
+          "phone",
+          "price",
+          "transactions_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "price",
+          "status",
+          "email",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "status",
+          "quantity",
+          "email",
+          "date",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "created_at",
+          "status",
+          "title",
+          "phone",
+          "departments_id",
+          "events_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 190
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "departments",
+        "to": "reviews"
+      },
+      {
+        "from": "enrollments",
+        "to": "departments"
+      },
+      {
+        "from": "events",
+        "to": "transactions"
+      },
+      {
+        "from": "patients",
+        "to": "departments"
+      },
+      {
+        "from": "reviews",
+        "to": "venues"
+      },
+      {
+        "from": "shipments",
+        "to": "reviews"
+      },
+      {
+        "from": "transactions",
+        "to": "reviews"
+      },
+      {
+        "from": "venues",
+        "to": "departments"
+      },
+      {
+        "from": "venues",
+        "to": "enrollments"
+      },
+      {
+        "from": "venues",
+        "to": "events"
+      }
+    ]
+  },
+  {
+    "id": "s8_9",
+    "n_tables": 8,
+    "tables": [
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "amount"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "phone",
+          "notes",
+          "title",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "created_at",
+          "name",
+          "price",
+          "branches_id",
+          "enrollments_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "description",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "email",
+          "amount",
+          "name",
+          "enrollments_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "email",
+          "status",
+          "notes",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "description",
+          "amount",
+          "title",
+          "status",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "shipments"
+      },
+      {
+        "from": "branches",
+        "to": "shipments"
+      },
+      {
+        "from": "courses",
+        "to": "enrollments"
+      },
+      {
+        "from": "courses",
+        "to": "teachers"
+      },
+      {
+        "from": "customers",
+        "to": "shipments"
+      },
+      {
+        "from": "employees",
+        "to": "teachers"
+      },
+      {
+        "from": "enrollments",
+        "to": "branches"
+      },
+      {
+        "from": "teachers",
+        "to": "branches"
+      },
+      {
+        "from": "teachers",
+        "to": "customers"
+      },
+      {
+        "from": "teachers",
+        "to": "enrollments"
+      }
+    ]
+  },
+  {
+    "id": "s12_0",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "notes",
+          "price",
+          "phone",
+          "inventory_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "title",
+          "status",
+          "addresses_id",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "title",
+          "amount",
+          "status",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "status",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "notes",
+          "email",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "notes",
+          "amount",
+          "price",
+          "phone",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "phone",
+          "price",
+          "accounts_id",
+          "branches_id",
+          "tickets_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "description",
+          "price",
+          "date",
+          "amount",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "phone",
+          "email",
+          "amount",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "description",
+          "quantity",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "price",
+          "name",
+          "email",
+          "status",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "inventory"
+      },
+      {
+        "from": "accounts",
+        "to": "teachers"
+      },
+      {
+        "from": "addresses",
+        "to": "accounts"
+      },
+      {
+        "from": "branches",
+        "to": "inventory"
+      },
+      {
+        "from": "carts",
+        "to": "accounts"
+      },
+      {
+        "from": "carts",
+        "to": "branches"
+      },
+      {
+        "from": "carts",
+        "to": "tickets"
+      },
+      {
+        "from": "courses",
+        "to": "accounts"
+      },
+      {
+        "from": "courses",
+        "to": "addresses"
+      },
+      {
+        "from": "employees",
+        "to": "addresses"
+      },
+      {
+        "from": "enrollments",
+        "to": "addresses"
+      },
+      {
+        "from": "inventory",
+        "to": "addresses"
+      },
+      {
+        "from": "orders",
+        "to": "projects"
+      },
+      {
+        "from": "projects",
+        "to": "addresses"
+      },
+      {
+        "from": "teachers",
+        "to": "employees"
+      },
+      {
+        "from": "tickets",
+        "to": "courses"
+      }
+    ]
+  },
+  {
+    "id": "s12_1",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "phone",
+          "email"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "email",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "date",
+          "name",
+          "notes",
+          "tickets_id",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "description",
+          "name",
+          "status",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "quantity",
+          "amount",
+          "phone",
+          "title",
+          "teachers_id",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "phone",
+          "amount",
+          "transactions_id",
+          "doctors_id",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "name",
+          "title",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "status",
+          "created_at",
+          "price",
+          "date",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "date",
+          "description",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "status",
+          "email",
+          "tickets_id",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "email",
+          "title",
+          "created_at",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "categories",
+        "to": "tickets"
+      },
+      {
+        "from": "categories",
+        "to": "users"
+      },
+      {
+        "from": "events",
+        "to": "tickets"
+      },
+      {
+        "from": "events",
+        "to": "users"
+      },
+      {
+        "from": "orders",
+        "to": "projects"
+      },
+      {
+        "from": "projects",
+        "to": "doctors"
+      },
+      {
+        "from": "projects",
+        "to": "shipments"
+      },
+      {
+        "from": "projects",
+        "to": "transactions"
+      },
+      {
+        "from": "shipments",
+        "to": "teachers"
+      },
+      {
+        "from": "teachers",
+        "to": "doctors"
+      },
+      {
+        "from": "tickets",
+        "to": "doctors"
+      },
+      {
+        "from": "transactions",
+        "to": "users"
+      },
+      {
+        "from": "users",
+        "to": "teachers"
+      },
+      {
+        "from": "venues",
+        "to": "categories"
+      },
+      {
+        "from": "venues",
+        "to": "teachers"
+      },
+      {
+        "from": "warehouses",
+        "to": "users"
+      }
+    ]
+  },
+  {
+    "id": "s12_2",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "quantity",
+          "date",
+          "title",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "status",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "status",
+          "amount",
+          "description",
+          "notes",
+          "projects_id",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "phone",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "description",
+          "notes",
+          "created_at",
+          "phone",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "created_at",
+          "date",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "quantity",
+          "email",
+          "phone",
+          "title",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "phone",
+          "name",
+          "created_at",
+          "description",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "created_at",
+          "email",
+          "phone",
+          "price",
+          "projects_id",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "amount",
+          "description",
+          "email",
+          "students_id",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "description",
+          "transactions_id",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "title",
+          "phone",
+          "date",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "carts",
+        "to": "employees"
+      },
+      {
+        "from": "courses",
+        "to": "warehouses"
+      },
+      {
+        "from": "employees",
+        "to": "patients"
+      },
+      {
+        "from": "employees",
+        "to": "projects"
+      },
+      {
+        "from": "inventory",
+        "to": "projects"
+      },
+      {
+        "from": "inventory",
+        "to": "transactions"
+      },
+      {
+        "from": "invoices",
+        "to": "shipments"
+      },
+      {
+        "from": "invoices",
+        "to": "students"
+      },
+      {
+        "from": "patients",
+        "to": "warehouses"
+      },
+      {
+        "from": "projects",
+        "to": "carts"
+      },
+      {
+        "from": "shipments",
+        "to": "warehouses"
+      },
+      {
+        "from": "students",
+        "to": "venues"
+      },
+      {
+        "from": "transactions",
+        "to": "carts"
+      },
+      {
+        "from": "transactions",
+        "to": "projects"
+      },
+      {
+        "from": "venues",
+        "to": "patients"
+      },
+      {
+        "from": "warehouses",
+        "to": "venues"
+      }
+    ]
+  },
+  {
+    "id": "s12_3",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "amount",
+          "description"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "title",
+          "status",
+          "phone",
+          "created_at",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "phone",
+          "title",
+          "venues_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "phone",
+          "price",
+          "name",
+          "products_id",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "price",
+          "title",
+          "date",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "email",
+          "phone",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "amount",
+          "price",
+          "description",
+          "orders_id",
+          "carts_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "price",
+          "phone",
+          "notes",
+          "status",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "phone",
+          "email",
+          "status",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "amount",
+          "quantity",
+          "notes",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "notes",
+          "price",
+          "name",
+          "products_id",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "description",
+          "price",
+          "name",
+          "amount",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "appointments",
+        "to": "products"
+      },
+      {
+        "from": "carts",
+        "to": "appointments"
+      },
+      {
+        "from": "customers",
+        "to": "doctors"
+      },
+      {
+        "from": "customers",
+        "to": "products"
+      },
+      {
+        "from": "doctors",
+        "to": "orders"
+      },
+      {
+        "from": "employees",
+        "to": "carts"
+      },
+      {
+        "from": "employees",
+        "to": "orders"
+      },
+      {
+        "from": "employees",
+        "to": "products"
+      },
+      {
+        "from": "enrollments",
+        "to": "orders"
+      },
+      {
+        "from": "events",
+        "to": "orders"
+      },
+      {
+        "from": "invoices",
+        "to": "events"
+      },
+      {
+        "from": "invoices",
+        "to": "products"
+      },
+      {
+        "from": "products",
+        "to": "orders"
+      },
+      {
+        "from": "products",
+        "to": "venues"
+      },
+      {
+        "from": "tickets",
+        "to": "products"
+      },
+      {
+        "from": "venues",
+        "to": "doctors"
+      }
+    ]
+  },
+  {
+    "id": "s12_4",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "quantity",
+          "email",
+          "phone",
+          "title"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "status",
+          "title",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "title",
+          "description",
+          "date",
+          "quantity",
+          "reviews_id",
+          "projects_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "description",
+          "name",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "date",
+          "email",
+          "phone",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "title",
+          "notes",
+          "price",
+          "branches_id",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "description",
+          "title",
+          "quantity",
+          "email",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "status",
+          "phone",
+          "name",
+          "date",
+          "employees_id",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "amount",
+          "status",
+          "email",
+          "accounts_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "phone",
+          "price",
+          "description",
+          "email",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "name",
+          "notes",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "phone",
+          "email",
+          "title",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "branches"
+      },
+      {
+        "from": "accounts",
+        "to": "invoices"
+      },
+      {
+        "from": "branches",
+        "to": "employees"
+      },
+      {
+        "from": "branches",
+        "to": "projects"
+      },
+      {
+        "from": "branches",
+        "to": "reviews"
+      },
+      {
+        "from": "employees",
+        "to": "projects"
+      },
+      {
+        "from": "enrollments",
+        "to": "projects"
+      },
+      {
+        "from": "events",
+        "to": "branches"
+      },
+      {
+        "from": "invoices",
+        "to": "warehouses"
+      },
+      {
+        "from": "payments",
+        "to": "enrollments"
+      },
+      {
+        "from": "reviews",
+        "to": "accounts"
+      },
+      {
+        "from": "reviews",
+        "to": "employees"
+      },
+      {
+        "from": "shipments",
+        "to": "employees"
+      },
+      {
+        "from": "venues",
+        "to": "employees"
+      },
+      {
+        "from": "venues",
+        "to": "projects"
+      },
+      {
+        "from": "warehouses",
+        "to": "branches"
+      }
+    ]
+  },
+  {
+    "id": "s12_5",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "amount",
+          "name",
+          "title",
+          "quantity"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "doctors_id",
+          "invoices_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "amount",
+          "status",
+          "teachers_id",
+          "venues_id",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "quantity",
+          "created_at",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "name",
+          "price",
+          "created_at",
+          "amount",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "price",
+          "created_at",
+          "email",
+          "name",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "amount",
+          "quantity",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "created_at",
+          "description",
+          "inventory_id",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "phone",
+          "amount",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "addresses",
+        "to": "suppliers"
+      },
+      {
+        "from": "carts",
+        "to": "suppliers"
+      },
+      {
+        "from": "doctors",
+        "to": "inventory"
+      },
+      {
+        "from": "events",
+        "to": "inventory"
+      },
+      {
+        "from": "inventory",
+        "to": "students"
+      },
+      {
+        "from": "reviews",
+        "to": "invoices"
+      },
+      {
+        "from": "students",
+        "to": "invoices"
+      },
+      {
+        "from": "suppliers",
+        "to": "inventory"
+      },
+      {
+        "from": "suppliers",
+        "to": "teachers"
+      },
+      {
+        "from": "suppliers",
+        "to": "venues"
+      },
+      {
+        "from": "teachers",
+        "to": "doctors"
+      },
+      {
+        "from": "teachers",
+        "to": "inventory"
+      },
+      {
+        "from": "tickets",
+        "to": "doctors"
+      },
+      {
+        "from": "venues",
+        "to": "doctors"
+      },
+      {
+        "from": "venues",
+        "to": "invoices"
+      },
+      {
+        "from": "venues",
+        "to": "teachers"
+      }
+    ]
+  },
+  {
+    "id": "s12_6",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "notes",
+          "quantity",
+          "description",
+          "date"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "phone",
+          "date",
+          "amount",
+          "courses_id",
+          "inventory_id",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "date",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "phone",
+          "notes",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "quantity",
+          "phone",
+          "description",
+          "teachers_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "notes",
+          "email",
+          "quantity",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "quantity",
+          "title",
+          "price",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "created_at",
+          "title",
+          "phone",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "description",
+          "email",
+          "courses_id",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "notes",
+          "quantity",
+          "created_at",
+          "date",
+          "invoices_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "amount",
+          "date",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "invoices"
+      },
+      {
+        "from": "branches",
+        "to": "orders"
+      },
+      {
+        "from": "courses",
+        "to": "accounts"
+      },
+      {
+        "from": "customers",
+        "to": "orders"
+      },
+      {
+        "from": "customers",
+        "to": "teachers"
+      },
+      {
+        "from": "employees",
+        "to": "reviews"
+      },
+      {
+        "from": "enrollments",
+        "to": "reviews"
+      },
+      {
+        "from": "events",
+        "to": "teachers"
+      },
+      {
+        "from": "inventory",
+        "to": "teachers"
+      },
+      {
+        "from": "invoices",
+        "to": "inventory"
+      },
+      {
+        "from": "orders",
+        "to": "courses"
+      },
+      {
+        "from": "orders",
+        "to": "invoices"
+      },
+      {
+        "from": "reviews",
+        "to": "accounts"
+      },
+      {
+        "from": "reviews",
+        "to": "courses"
+      },
+      {
+        "from": "reviews",
+        "to": "inventory"
+      },
+      {
+        "from": "teachers",
+        "to": "accounts"
+      }
+    ]
+  },
+  {
+    "id": "s12_7",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "amount",
+          "title"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "price",
+          "name",
+          "created_at",
+          "notes",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "title",
+          "name",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "events_id",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "description",
+          "email",
+          "created_at",
+          "name",
+          "employees_id",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "notes",
+          "date",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "description",
+          "notes",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "quantity",
+          "created_at",
+          "notes",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "notes",
+          "quantity",
+          "amount",
+          "customers_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "created_at",
+          "amount",
+          "departments_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "name",
+          "title",
+          "email",
+          "price",
+          "orders_id",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "title",
+          "description",
+          "phone",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "appointments",
+        "to": "orders"
+      },
+      {
+        "from": "carts",
+        "to": "departments"
+      },
+      {
+        "from": "carts",
+        "to": "employees"
+      },
+      {
+        "from": "customers",
+        "to": "doctors"
+      },
+      {
+        "from": "customers",
+        "to": "events"
+      },
+      {
+        "from": "departments",
+        "to": "students"
+      },
+      {
+        "from": "doctors",
+        "to": "students"
+      },
+      {
+        "from": "employees",
+        "to": "departments"
+      },
+      {
+        "from": "employees",
+        "to": "enrollments"
+      },
+      {
+        "from": "enrollments",
+        "to": "orders"
+      },
+      {
+        "from": "enrollments",
+        "to": "reviews"
+      },
+      {
+        "from": "events",
+        "to": "reviews"
+      },
+      {
+        "from": "orders",
+        "to": "customers"
+      },
+      {
+        "from": "orders",
+        "to": "employees"
+      },
+      {
+        "from": "reviews",
+        "to": "departments"
+      },
+      {
+        "from": "transactions",
+        "to": "customers"
+      }
+    ]
+  },
+  {
+    "id": "s12_8",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "status",
+          "date",
+          "title",
+          "quantity"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "description",
+          "name",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "name",
+          "phone",
+          "email",
+          "payments_id",
+          "employees_id",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "amount",
+          "description",
+          "notes",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "notes",
+          "title",
+          "description",
+          "accounts_id",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "email",
+          "description",
+          "name",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "phone",
+          "reviews_id",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "quantity",
+          "email",
+          "description",
+          "title",
+          "courses_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "description",
+          "amount",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "date",
+          "email",
+          "description",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "notes",
+          "quantity",
+          "status",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "created_at",
+          "email",
+          "date",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "shipments"
+      },
+      {
+        "from": "carts",
+        "to": "employees"
+      },
+      {
+        "from": "carts",
+        "to": "inventory"
+      },
+      {
+        "from": "carts",
+        "to": "payments"
+      },
+      {
+        "from": "courses",
+        "to": "payments"
+      },
+      {
+        "from": "courses",
+        "to": "reviews"
+      },
+      {
+        "from": "customers",
+        "to": "courses"
+      },
+      {
+        "from": "customers",
+        "to": "enrollments"
+      },
+      {
+        "from": "employees",
+        "to": "shipments"
+      },
+      {
+        "from": "events",
+        "to": "shipments"
+      },
+      {
+        "from": "inventory",
+        "to": "enrollments"
+      },
+      {
+        "from": "patients",
+        "to": "payments"
+      },
+      {
+        "from": "payments",
+        "to": "accounts"
+      },
+      {
+        "from": "payments",
+        "to": "inventory"
+      },
+      {
+        "from": "reviews",
+        "to": "enrollments"
+      },
+      {
+        "from": "shipments",
+        "to": "enrollments"
+      }
+    ]
+  },
+  {
+    "id": "s12_9",
+    "n_tables": 12,
+    "tables": [
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "phone",
+          "title",
+          "price"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "amount",
+          "name",
+          "quantity",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "email",
+          "price",
+          "phone",
+          "amount",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "email",
+          "title",
+          "notes",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "amount",
+          "date",
+          "description",
+          "phone",
+          "courses_id",
+          "invoices_id",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "date",
+          "name",
+          "phone",
+          "status",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "amount",
+          "phone",
+          "date",
+          "reviews_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "name",
+          "phone",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "quantity",
+          "email",
+          "invoices_id",
+          "venues_id",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "title",
+          "created_at",
+          "name",
+          "status",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "phone",
+          "notes",
+          "date",
+          "amount",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "courses"
+      },
+      {
+        "from": "accounts",
+        "to": "invoices"
+      },
+      {
+        "from": "accounts",
+        "to": "payments"
+      },
+      {
+        "from": "branches",
+        "to": "customers"
+      },
+      {
+        "from": "branches",
+        "to": "reviews"
+      },
+      {
+        "from": "courses",
+        "to": "customers"
+      },
+      {
+        "from": "customers",
+        "to": "appointments"
+      },
+      {
+        "from": "events",
+        "to": "appointments"
+      },
+      {
+        "from": "invoices",
+        "to": "branches"
+      },
+      {
+        "from": "payments",
+        "to": "customers"
+      },
+      {
+        "from": "projects",
+        "to": "customers"
+      },
+      {
+        "from": "reviews",
+        "to": "customers"
+      },
+      {
+        "from": "suppliers",
+        "to": "courses"
+      },
+      {
+        "from": "suppliers",
+        "to": "invoices"
+      },
+      {
+        "from": "suppliers",
+        "to": "venues"
+      },
+      {
+        "from": "venues",
+        "to": "branches"
+      }
+    ]
+  },
+  {
+    "id": "s16_0",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "status",
+          "quantity"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "status",
+          "notes",
+          "created_at",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "email",
+          "price",
+          "employees_id",
+          "categories_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "date",
+          "name",
+          "quantity",
+          "created_at",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "title",
+          "amount",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "amount",
+          "created_at",
+          "phone",
+          "name",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "quantity",
+          "title",
+          "status",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "amount",
+          "price",
+          "phone",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "date",
+          "status",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "phone",
+          "status",
+          "quantity",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "amount",
+          "phone",
+          "title",
+          "price",
+          "orders_id",
+          "enrollments_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "description",
+          "orders_id",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "status",
+          "amount",
+          "doctors_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "price",
+          "name",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "date",
+          "email",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "addresses",
+        "to": "reviews"
+      },
+      {
+        "from": "carts",
+        "to": "enrollments"
+      },
+      {
+        "from": "categories",
+        "to": "enrollments"
+      },
+      {
+        "from": "customers",
+        "to": "carts"
+      },
+      {
+        "from": "departments",
+        "to": "employees"
+      },
+      {
+        "from": "doctors",
+        "to": "reviews"
+      },
+      {
+        "from": "employees",
+        "to": "categories"
+      },
+      {
+        "from": "events",
+        "to": "categories"
+      },
+      {
+        "from": "orders",
+        "to": "employees"
+      },
+      {
+        "from": "patients",
+        "to": "employees"
+      },
+      {
+        "from": "patients",
+        "to": "enrollments"
+      },
+      {
+        "from": "patients",
+        "to": "orders"
+      },
+      {
+        "from": "products",
+        "to": "orders"
+      },
+      {
+        "from": "products",
+        "to": "patients"
+      },
+      {
+        "from": "projects",
+        "to": "addresses"
+      },
+      {
+        "from": "reviews",
+        "to": "categories"
+      },
+      {
+        "from": "reviews",
+        "to": "employees"
+      },
+      {
+        "from": "reviews",
+        "to": "orders"
+      },
+      {
+        "from": "shipments",
+        "to": "reviews"
+      },
+      {
+        "from": "teachers",
+        "to": "doctors"
+      },
+      {
+        "from": "teachers",
+        "to": "orders"
+      }
+    ]
+  },
+  {
+    "id": "s16_1",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "phone",
+          "notes",
+          "amount",
+          "name"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "name",
+          "price",
+          "patients_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "created_at",
+          "date",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "amount",
+          "date",
+          "description",
+          "email",
+          "invoices_id",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "email",
+          "courses_id",
+          "accounts_id",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "amount",
+          "phone",
+          "email",
+          "notes",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "amount",
+          "date",
+          "name",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "date",
+          "amount",
+          "status",
+          "created_at",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "description",
+          "name",
+          "amount",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "status",
+          "amount",
+          "description",
+          "accounts_id",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "title",
+          "notes",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "date",
+          "quantity",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "name",
+          "description",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "name",
+          "title",
+          "description",
+          "doctors_id",
+          "carts_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "customers"
+      },
+      {
+        "from": "carts",
+        "to": "products"
+      },
+      {
+        "from": "categories",
+        "to": "employees"
+      },
+      {
+        "from": "courses",
+        "to": "patients"
+      },
+      {
+        "from": "customers",
+        "to": "events"
+      },
+      {
+        "from": "customers",
+        "to": "invoices"
+      },
+      {
+        "from": "doctors",
+        "to": "products"
+      },
+      {
+        "from": "employees",
+        "to": "accounts"
+      },
+      {
+        "from": "employees",
+        "to": "courses"
+      },
+      {
+        "from": "employees",
+        "to": "patients"
+      },
+      {
+        "from": "events",
+        "to": "employees"
+      },
+      {
+        "from": "events",
+        "to": "patients"
+      },
+      {
+        "from": "inventory",
+        "to": "customers"
+      },
+      {
+        "from": "invoices",
+        "to": "patients"
+      },
+      {
+        "from": "products",
+        "to": "customers"
+      },
+      {
+        "from": "shipments",
+        "to": "courses"
+      },
+      {
+        "from": "suppliers",
+        "to": "accounts"
+      },
+      {
+        "from": "suppliers",
+        "to": "events"
+      },
+      {
+        "from": "venues",
+        "to": "categories"
+      },
+      {
+        "from": "warehouses",
+        "to": "carts"
+      },
+      {
+        "from": "warehouses",
+        "to": "doctors"
+      }
+    ]
+  },
+  {
+    "id": "s16_2",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "quantity",
+          "name"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "quantity",
+          "price",
+          "email",
+          "notes",
+          "products_id",
+          "reviews_id",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "description",
+          "phone",
+          "notes",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "created_at",
+          "phone",
+          "title",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "date",
+          "price",
+          "email",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "description",
+          "email",
+          "notes",
+          "created_at",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "price",
+          "quantity",
+          "email",
+          "amount",
+          "orders_id",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "title",
+          "price",
+          "notes",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "amount",
+          "description",
+          "created_at",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "notes",
+          "name",
+          "shipments_id",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "quantity",
+          "amount",
+          "description",
+          "price",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "description",
+          "quantity",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "notes",
+          "title",
+          "created_at",
+          "name",
+          "suppliers_id",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "amount",
+          "title",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "name",
+          "created_at",
+          "email",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "title",
+          "quantity",
+          "projects_id",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "appointments",
+        "to": "doctors"
+      },
+      {
+        "from": "appointments",
+        "to": "shipments"
+      },
+      {
+        "from": "branches",
+        "to": "reviews"
+      },
+      {
+        "from": "categories",
+        "to": "departments"
+      },
+      {
+        "from": "categories",
+        "to": "projects"
+      },
+      {
+        "from": "customers",
+        "to": "invoices"
+      },
+      {
+        "from": "departments",
+        "to": "projects"
+      },
+      {
+        "from": "departments",
+        "to": "suppliers"
+      },
+      {
+        "from": "doctors",
+        "to": "branches"
+      },
+      {
+        "from": "invoices",
+        "to": "shipments"
+      },
+      {
+        "from": "orders",
+        "to": "reviews"
+      },
+      {
+        "from": "products",
+        "to": "users"
+      },
+      {
+        "from": "projects",
+        "to": "users"
+      },
+      {
+        "from": "shipments",
+        "to": "departments"
+      },
+      {
+        "from": "shipments",
+        "to": "products"
+      },
+      {
+        "from": "shipments",
+        "to": "reviews"
+      },
+      {
+        "from": "suppliers",
+        "to": "users"
+      },
+      {
+        "from": "teachers",
+        "to": "reviews"
+      },
+      {
+        "from": "transactions",
+        "to": "orders"
+      },
+      {
+        "from": "transactions",
+        "to": "products"
+      },
+      {
+        "from": "users",
+        "to": "branches"
+      }
+    ]
+  },
+  {
+    "id": "s16_3",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "phone",
+          "email",
+          "quantity",
+          "amount"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "title",
+          "price",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "created_at",
+          "title",
+          "notes",
+          "inventory_id",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "date",
+          "status",
+          "email",
+          "teachers_id",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "created_at",
+          "status",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "date",
+          "appointments_id",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "quantity",
+          "phone",
+          "date",
+          "created_at",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "email",
+          "notes",
+          "price",
+          "description",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "notes",
+          "phone",
+          "date",
+          "description",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "amount",
+          "email",
+          "created_at",
+          "products_id",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "title",
+          "email",
+          "phone",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "quantity",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "date",
+          "title",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "created_at",
+          "notes",
+          "description",
+          "date",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "orders_id",
+          "accounts_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "price",
+          "created_at",
+          "orders_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "addresses"
+      },
+      {
+        "from": "addresses",
+        "to": "reviews"
+      },
+      {
+        "from": "appointments",
+        "to": "accounts"
+      },
+      {
+        "from": "appointments",
+        "to": "orders"
+      },
+      {
+        "from": "branches",
+        "to": "products"
+      },
+      {
+        "from": "branches",
+        "to": "projects"
+      },
+      {
+        "from": "courses",
+        "to": "enrollments"
+      },
+      {
+        "from": "doctors",
+        "to": "suppliers"
+      },
+      {
+        "from": "enrollments",
+        "to": "reviews"
+      },
+      {
+        "from": "inventory",
+        "to": "addresses"
+      },
+      {
+        "from": "orders",
+        "to": "reviews"
+      },
+      {
+        "from": "orders",
+        "to": "teachers"
+      },
+      {
+        "from": "patients",
+        "to": "doctors"
+      },
+      {
+        "from": "payments",
+        "to": "enrollments"
+      },
+      {
+        "from": "payments",
+        "to": "orders"
+      },
+      {
+        "from": "products",
+        "to": "projects"
+      },
+      {
+        "from": "projects",
+        "to": "inventory"
+      },
+      {
+        "from": "suppliers",
+        "to": "appointments"
+      },
+      {
+        "from": "suppliers",
+        "to": "reviews"
+      },
+      {
+        "from": "teachers",
+        "to": "addresses"
+      },
+      {
+        "from": "teachers",
+        "to": "inventory"
+      }
+    ]
+  },
+  {
+    "id": "s16_4",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "created_at",
+          "products_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "description",
+          "phone",
+          "title",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "quantity",
+          "amount",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "quantity",
+          "notes",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "quantity",
+          "description",
+          "created_at",
+          "notes",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "date",
+          "email",
+          "quantity",
+          "status",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "email",
+          "price",
+          "phone",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "created_at",
+          "email",
+          "suppliers_id",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "price",
+          "description",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "description",
+          "status",
+          "created_at",
+          "quantity",
+          "products_id",
+          "departments_id",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "notes",
+          "quantity",
+          "status",
+          "created_at",
+          "categories_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "date",
+          "phone",
+          "title",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "phone",
+          "name",
+          "email",
+          "reviews_id",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "date",
+          "phone",
+          "status",
+          "reviews_id",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "amount",
+          "quantity",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "name",
+          "price",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "branches",
+        "to": "payments"
+      },
+      {
+        "from": "branches",
+        "to": "reviews"
+      },
+      {
+        "from": "categories",
+        "to": "products"
+      },
+      {
+        "from": "courses",
+        "to": "reviews"
+      },
+      {
+        "from": "departments",
+        "to": "categories"
+      },
+      {
+        "from": "doctors",
+        "to": "students"
+      },
+      {
+        "from": "employees",
+        "to": "categories"
+      },
+      {
+        "from": "events",
+        "to": "students"
+      },
+      {
+        "from": "invoices",
+        "to": "categories"
+      },
+      {
+        "from": "patients",
+        "to": "categories"
+      },
+      {
+        "from": "payments",
+        "to": "departments"
+      },
+      {
+        "from": "payments",
+        "to": "products"
+      },
+      {
+        "from": "payments",
+        "to": "students"
+      },
+      {
+        "from": "products",
+        "to": "employees"
+      },
+      {
+        "from": "products",
+        "to": "suppliers"
+      },
+      {
+        "from": "reviews",
+        "to": "patients"
+      },
+      {
+        "from": "shipments",
+        "to": "categories"
+      },
+      {
+        "from": "students",
+        "to": "categories"
+      },
+      {
+        "from": "suppliers",
+        "to": "payments"
+      },
+      {
+        "from": "suppliers",
+        "to": "reviews"
+      },
+      {
+        "from": "teachers",
+        "to": "invoices"
+      }
+    ]
+  },
+  {
+    "id": "s16_5",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "created_at",
+          "amount",
+          "date"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "quantity",
+          "amount",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "created_at",
+          "description",
+          "amount",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "price",
+          "amount",
+          "quantity",
+          "date",
+          "warehouses_id",
+          "employees_id",
+          "tickets_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "date",
+          "phone",
+          "amount",
+          "price",
+          "appointments_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "name",
+          "quantity",
+          "title",
+          "tickets_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "email",
+          "description",
+          "amount",
+          "price",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "notes",
+          "title",
+          "name",
+          "phone",
+          "tickets_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "title",
+          "amount",
+          "notes",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "notes",
+          "name",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "carts",
+        "columns": [
+          "id",
+          "phone",
+          "created_at",
+          "date",
+          "description",
+          "users_id",
+          "shipments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "title",
+          "status",
+          "shipments_id",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "shipments",
+        "columns": [
+          "id",
+          "amount",
+          "email",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "reviews",
+        "columns": [
+          "id",
+          "name",
+          "phone",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "notes",
+          "reviews_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "status",
+          "description",
+          "date",
+          "phone",
+          "customers_id",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 170
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "addresses",
+        "to": "reviews"
+      },
+      {
+        "from": "appointments",
+        "to": "employees"
+      },
+      {
+        "from": "appointments",
+        "to": "tickets"
+      },
+      {
+        "from": "appointments",
+        "to": "warehouses"
+      },
+      {
+        "from": "carts",
+        "to": "shipments"
+      },
+      {
+        "from": "carts",
+        "to": "users"
+      },
+      {
+        "from": "categories",
+        "to": "customers"
+      },
+      {
+        "from": "categories",
+        "to": "users"
+      },
+      {
+        "from": "customers",
+        "to": "employees"
+      },
+      {
+        "from": "doctors",
+        "to": "appointments"
+      },
+      {
+        "from": "doctors",
+        "to": "enrollments"
+      },
+      {
+        "from": "employees",
+        "to": "doctors"
+      },
+      {
+        "from": "enrollments",
+        "to": "warehouses"
+      },
+      {
+        "from": "projects",
+        "to": "tickets"
+      },
+      {
+        "from": "reviews",
+        "to": "doctors"
+      },
+      {
+        "from": "shipments",
+        "to": "users"
+      },
+      {
+        "from": "students",
+        "to": "tickets"
+      },
+      {
+        "from": "suppliers",
+        "to": "shipments"
+      },
+      {
+        "from": "suppliers",
+        "to": "students"
+      },
+      {
+        "from": "tickets",
+        "to": "enrollments"
+      },
+      {
+        "from": "users",
+        "to": "enrollments"
+      }
+    ]
+  },
+  {
+    "id": "s16_6",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "name"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "projects",
+        "columns": [
+          "id",
+          "notes",
+          "email",
+          "quantity",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "branches",
+        "columns": [
+          "id",
+          "title",
+          "price",
+          "phone",
+          "projects_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "status",
+          "date",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "date",
+          "price",
+          "created_at",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "amount",
+          "notes",
+          "branches_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "status",
+          "name",
+          "orders_id",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "date",
+          "status",
+          "title",
+          "name",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "description",
+          "quantity",
+          "orders_id",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "phone",
+          "email",
+          "created_at",
+          "name",
+          "warehouses_id",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "created_at",
+          "description",
+          "phone",
+          "amount",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "quantity",
+          "title",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "amount",
+          "status",
+          "orders_id",
+          "enrollments_id",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "notes",
+          "name",
+          "created_at",
+          "description",
+          "venues_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "name",
+          "description",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "created_at",
+          "price",
+          "name",
+          "accounts_id",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 150
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "addresses"
+      },
+      {
+        "from": "accounts",
+        "to": "enrollments"
+      },
+      {
+        "from": "accounts",
+        "to": "orders"
+      },
+      {
+        "from": "addresses",
+        "to": "venues"
+      },
+      {
+        "from": "branches",
+        "to": "projects"
+      },
+      {
+        "from": "courses",
+        "to": "venues"
+      },
+      {
+        "from": "departments",
+        "to": "orders"
+      },
+      {
+        "from": "enrollments",
+        "to": "orders"
+      },
+      {
+        "from": "orders",
+        "to": "branches"
+      },
+      {
+        "from": "patients",
+        "to": "branches"
+      },
+      {
+        "from": "payments",
+        "to": "orders"
+      },
+      {
+        "from": "payments",
+        "to": "venues"
+      },
+      {
+        "from": "products",
+        "to": "accounts"
+      },
+      {
+        "from": "products",
+        "to": "patients"
+      },
+      {
+        "from": "projects",
+        "to": "events"
+      },
+      {
+        "from": "students",
+        "to": "venues"
+      },
+      {
+        "from": "students",
+        "to": "warehouses"
+      },
+      {
+        "from": "suppliers",
+        "to": "orders"
+      },
+      {
+        "from": "suppliers",
+        "to": "warehouses"
+      },
+      {
+        "from": "venues",
+        "to": "branches"
+      },
+      {
+        "from": "warehouses",
+        "to": "payments"
+      }
+    ]
+  },
+  {
+    "id": "s16_7",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "users",
+        "columns": [
+          "id",
+          "phone",
+          "quantity"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "name",
+          "price",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "status",
+          "phone",
+          "price",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "price",
+          "amount",
+          "title",
+          "employees_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "price",
+          "title",
+          "employees_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "notes",
+          "status",
+          "name",
+          "students_id",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "venues",
+        "columns": [
+          "id",
+          "email",
+          "phone",
+          "price",
+          "created_at",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "title",
+          "date",
+          "price",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "appointments",
+        "columns": [
+          "id",
+          "email",
+          "title",
+          "price",
+          "quantity",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "status",
+          "notes",
+          "created_at",
+          "phone",
+          "users_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "phone",
+          "amount",
+          "employees_id",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "description",
+          "date",
+          "phone",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "title",
+          "status",
+          "notes",
+          "email",
+          "tickets_id",
+          "courses_id",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "phone",
+          "date",
+          "quantity",
+          "email",
+          "courses_id",
+          "appointments_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "date",
+          "amount",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "amount",
+          "date",
+          "enrollments_id"
+        ],
+        "w": 200,
+        "h": 110
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "appointments",
+        "to": "teachers"
+      },
+      {
+        "from": "courses",
+        "to": "departments"
+      },
+      {
+        "from": "courses",
+        "to": "employees"
+      },
+      {
+        "from": "customers",
+        "to": "employees"
+      },
+      {
+        "from": "departments",
+        "to": "enrollments"
+      },
+      {
+        "from": "departments",
+        "to": "students"
+      },
+      {
+        "from": "doctors",
+        "to": "enrollments"
+      },
+      {
+        "from": "employees",
+        "to": "users"
+      },
+      {
+        "from": "enrollments",
+        "to": "employees"
+      },
+      {
+        "from": "enrollments",
+        "to": "teachers"
+      },
+      {
+        "from": "inventory",
+        "to": "teachers"
+      },
+      {
+        "from": "patients",
+        "to": "suppliers"
+      },
+      {
+        "from": "students",
+        "to": "users"
+      },
+      {
+        "from": "suppliers",
+        "to": "courses"
+      },
+      {
+        "from": "suppliers",
+        "to": "students"
+      },
+      {
+        "from": "suppliers",
+        "to": "tickets"
+      },
+      {
+        "from": "teachers",
+        "to": "users"
+      },
+      {
+        "from": "tickets",
+        "to": "appointments"
+      },
+      {
+        "from": "tickets",
+        "to": "courses"
+      },
+      {
+        "from": "venues",
+        "to": "departments"
+      },
+      {
+        "from": "warehouses",
+        "to": "customers"
+      }
+    ]
+  },
+  {
+    "id": "s16_8",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "description",
+          "created_at",
+          "title"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "categories",
+        "columns": [
+          "id",
+          "notes",
+          "title",
+          "description",
+          "quantity",
+          "suppliers_id",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "phone",
+          "description",
+          "title",
+          "suppliers_id",
+          "students_id",
+          "categories_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 190
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "title",
+          "notes",
+          "departments_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "created_at",
+          "title",
+          "quantity",
+          "email",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "customers",
+        "columns": [
+          "id",
+          "date",
+          "description",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "doctors",
+        "columns": [
+          "id",
+          "created_at",
+          "status",
+          "name",
+          "amount",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "phone",
+          "title",
+          "date",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "date",
+          "description",
+          "status",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "warehouses",
+        "columns": [
+          "id",
+          "phone",
+          "quantity",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "products",
+        "columns": [
+          "id",
+          "price",
+          "status",
+          "doctors_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "email",
+          "name",
+          "description",
+          "title",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "transactions",
+        "columns": [
+          "id",
+          "status",
+          "email",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "amount",
+          "name",
+          "tickets_id",
+          "customers_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "amount",
+          "title",
+          "name",
+          "courses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "notes",
+          "name",
+          "suppliers_id",
+          "warehouses_id"
+        ],
+        "w": 200,
+        "h": 130
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "categories",
+        "to": "students"
+      },
+      {
+        "from": "categories",
+        "to": "suppliers"
+      },
+      {
+        "from": "courses",
+        "to": "departments"
+      },
+      {
+        "from": "customers",
+        "to": "inventory"
+      },
+      {
+        "from": "departments",
+        "to": "categories"
+      },
+      {
+        "from": "departments",
+        "to": "students"
+      },
+      {
+        "from": "departments",
+        "to": "suppliers"
+      },
+      {
+        "from": "departments",
+        "to": "teachers"
+      },
+      {
+        "from": "doctors",
+        "to": "courses"
+      },
+      {
+        "from": "enrollments",
+        "to": "suppliers"
+      },
+      {
+        "from": "enrollments",
+        "to": "warehouses"
+      },
+      {
+        "from": "inventory",
+        "to": "suppliers"
+      },
+      {
+        "from": "orders",
+        "to": "customers"
+      },
+      {
+        "from": "orders",
+        "to": "tickets"
+      },
+      {
+        "from": "payments",
+        "to": "customers"
+      },
+      {
+        "from": "products",
+        "to": "doctors"
+      },
+      {
+        "from": "students",
+        "to": "courses"
+      },
+      {
+        "from": "teachers",
+        "to": "inventory"
+      },
+      {
+        "from": "tickets",
+        "to": "inventory"
+      },
+      {
+        "from": "transactions",
+        "to": "suppliers"
+      },
+      {
+        "from": "warehouses",
+        "to": "suppliers"
+      }
+    ]
+  },
+  {
+    "id": "s16_9",
+    "n_tables": 16,
+    "tables": [
+      {
+        "name": "addresses",
+        "columns": [
+          "id",
+          "price",
+          "created_at"
+        ],
+        "w": 200,
+        "h": 90
+      },
+      {
+        "name": "inventory",
+        "columns": [
+          "id",
+          "name",
+          "date",
+          "description",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "invoices",
+        "columns": [
+          "id",
+          "date",
+          "notes",
+          "created_at",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "students",
+        "columns": [
+          "id",
+          "status",
+          "price",
+          "notes",
+          "inventory_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "payments",
+        "columns": [
+          "id",
+          "title",
+          "email",
+          "phone",
+          "patients_id",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "accounts",
+        "columns": [
+          "id",
+          "email",
+          "date",
+          "status",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 130
+      },
+      {
+        "name": "orders",
+        "columns": [
+          "id",
+          "price",
+          "description",
+          "addresses_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "suppliers",
+        "columns": [
+          "id",
+          "amount",
+          "notes",
+          "name",
+          "email",
+          "payments_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "courses",
+        "columns": [
+          "id",
+          "amount",
+          "title",
+          "invoices_id"
+        ],
+        "w": 200,
+        "h": 110
+      },
+      {
+        "name": "employees",
+        "columns": [
+          "id",
+          "status",
+          "phone",
+          "notes",
+          "quantity",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "events",
+        "columns": [
+          "id",
+          "name",
+          "status",
+          "title",
+          "courses_id",
+          "teachers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "teachers",
+        "columns": [
+          "id",
+          "email",
+          "phone",
+          "status",
+          "amount",
+          "suppliers_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "departments",
+        "columns": [
+          "id",
+          "status",
+          "date",
+          "quantity",
+          "addresses_id",
+          "invoices_id",
+          "patients_id"
+        ],
+        "w": 200,
+        "h": 170
+      },
+      {
+        "name": "tickets",
+        "columns": [
+          "id",
+          "description",
+          "phone",
+          "date",
+          "accounts_id",
+          "orders_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "enrollments",
+        "columns": [
+          "id",
+          "quantity",
+          "price",
+          "title",
+          "notes",
+          "events_id"
+        ],
+        "w": 200,
+        "h": 150
+      },
+      {
+        "name": "patients",
+        "columns": [
+          "id",
+          "phone",
+          "notes",
+          "email",
+          "title",
+          "events_id",
+          "students_id"
+        ],
+        "w": 200,
+        "h": 170
+      }
+    ],
+    "foreign_keys": [
+      {
+        "from": "accounts",
+        "to": "invoices"
+      },
+      {
+        "from": "courses",
+        "to": "invoices"
+      },
+      {
+        "from": "departments",
+        "to": "addresses"
+      },
+      {
+        "from": "departments",
+        "to": "invoices"
+      },
+      {
+        "from": "departments",
+        "to": "patients"
+      },
+      {
+        "from": "employees",
+        "to": "orders"
+      },
+      {
+        "from": "enrollments",
+        "to": "events"
+      },
+      {
+        "from": "events",
+        "to": "courses"
+      },
+      {
+        "from": "events",
+        "to": "teachers"
+      },
+      {
+        "from": "inventory",
+        "to": "addresses"
+      },
+      {
+        "from": "invoices",
+        "to": "addresses"
+      },
+      {
+        "from": "orders",
+        "to": "addresses"
+      },
+      {
+        "from": "patients",
+        "to": "events"
+      },
+      {
+        "from": "patients",
+        "to": "students"
+      },
+      {
+        "from": "payments",
+        "to": "invoices"
+      },
+      {
+        "from": "payments",
+        "to": "patients"
+      },
+      {
+        "from": "students",
+        "to": "inventory"
+      },
+      {
+        "from": "suppliers",
+        "to": "payments"
+      },
+      {
+        "from": "teachers",
+        "to": "suppliers"
+      },
+      {
+        "from": "tickets",
+        "to": "accounts"
+      },
+      {
+        "from": "tickets",
+        "to": "orders"
+      }
+    ]
+  }
+]
